@@ -30,12 +30,15 @@ pipeline {
         }
         
         stage('Git: Code Checkout') {
-            steps {
-                script{
-                    clone("https://github.com/rizwangourysk/Wanderlust-Mega-Project.git","main")
-                }
-            }
+    steps {
+        script {
+            code_checkout(
+                "https://github.com/rizwangourysk/Wanderlust-Mega-Project.git",
+                "main"
+            )
         }
+    }
+}
         
         stage("Trivy: Filesystem scan"){
             steps{
